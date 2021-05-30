@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.loginapp.domain.LoginDomain;
+import com.loginapp.service.UserAuthenticateService;
+
 public class LoginController extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req,HttpServletResponse res)  
@@ -18,10 +21,23 @@ public class LoginController extends HttpServlet {
 		String uiUserName= (String)req.getParameter("userName");
 		String uiPassword= (String)req.getParameter("password");
 		
+		// create a DTO
+		LoginDomain loginDto=new LoginDomain();
+		loginDto.setUserName((uiUserName));
+		loginDto.setPassword(uiPassword);
+		
+		
+		
 		System.out.println("UserNAme:::"+uiUserName);
 		System.out.println("Pwd:::"+uiPassword);
+		
+		UserAuthenticateService authService=new UserAuthenticateService();
+		
+		boolean isUserAuthenicated=authService.authenticateUser(loginDto);
+		
+		
 		RequestDispatcher rd=null;
-		if(uiUserName.equals(uiPassword)) {
+		if(isUserAuthenicated) {
 			
 			rd =req.getRequestDispatcher("/success.jsp"); 
 			rd.forward(req, res);
