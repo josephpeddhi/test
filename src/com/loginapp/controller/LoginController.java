@@ -44,7 +44,9 @@ public class LoginController extends HttpServlet {
 			
 		}else {
 			
-			rd =req.getRequestDispatcher("/error.jsp"); 
+			//set a attribute that can be used in JSP
+			req.setAttribute("authFailedError", "Inavlid Username or Password");
+			rd =req.getRequestDispatcher("/welcome.jsp"); 
 			rd.forward(req, res);
 			
 		}

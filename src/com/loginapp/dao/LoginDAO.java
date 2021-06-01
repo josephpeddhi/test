@@ -34,13 +34,13 @@ public class LoginDAO {
 			
 		}
 		
-		if(!userId.isEmpty()&& !pass.isEmpty()) {
+		if(userId.isEmpty()&& pass.isEmpty()) {
 			
 			
-			isAuthenticated=true;
+			isAuthenticated=false;
 			
 		}else {
-			isAuthenticated=false;
+			isAuthenticated=true;
 		}
 		
 		
