@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
 <div id="errors">
 <c:if test="${not empty authFailedError}"></c:if>
 

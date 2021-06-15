@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.loginapp.domain.LoginDomain;
 import com.loginapp.service.UserAuthenticateService;
@@ -20,7 +21,7 @@ public class LoginController extends HttpServlet {
 	
 		String uiUserName= (String)req.getParameter("userName");
 		String uiPassword= (String)req.getParameter("password");
-		
+		HttpSession session=null;
 		// create a DTO
 		LoginDomain loginDto=new LoginDomain();
 		loginDto.setUserName((uiUserName));
@@ -39,7 +40,12 @@ public class LoginController extends HttpServlet {
 		RequestDispatcher rd=null;
 		if(isUserAuthenicated) {
 			
+			// get the roles of the user
+			 session=req.getSession();
+			session.setAttribute("user", uiUserName);
+			
 			rd =req.getRequestDispatcher("/success.jsp"); 
+			
 			rd.forward(req, res);
 			
 		}else {
