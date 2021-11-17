@@ -12,8 +12,9 @@ public  class DBConnectionManager {
 		try {
 			System.out.println("Opening Connection...");
 			Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-			String url="jdbc:mysql://localhost:3306/provider";
-			String passwd="Prud3nt@2";
+			String url="jdbc:mysql://localhost/provider";
+			
+			String passwd="joel1234";
 			String userName="root";
 			conn=DriverManager.getConnection (url, userName, passwd);
 			System.out.println("Connection="+conn);
@@ -22,6 +23,7 @@ public  class DBConnectionManager {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("Exception message : "+ e);
 			e.printStackTrace();
 		}
 		

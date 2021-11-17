@@ -25,6 +25,25 @@
   <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>addProviderController</servlet-name>
+  <servlet-class>com.loginapp.controller.AddProvider</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>addProviderController</servlet-name>
+  <url-pattern>/addProvider</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>searchProviderController</servlet-name>
+  <servlet-class>com.loginapp.controller.ProviderSearch</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>searchProviderController</servlet-name>
+  <url-pattern>/searchProvider</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     

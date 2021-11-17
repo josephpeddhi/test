@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Success</title>
 </head>
 <body>
 
@@ -18,8 +18,9 @@ response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
 
 Welcome <c:out value='${sessionScope.user}'/>
 <br>
-<a href="/search">Search For Providers</a><br>
-<a href="/search">Add a Provider</a>
+<br>
+<a href="ProviderSearch.jsp">Search  Providers</a><br><br>
+<a href="ProviderAdd.jsp">Add a Provider</a>
 <br>
 
 
